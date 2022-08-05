@@ -1,0 +1,114 @@
+﻿@model Registro_Efectos_Adversos.Models.Vacuna
+
+@{
+    ViewData["Title"] = "Paso 4 de 5";
+}
+
+<h1>Paso 4 de 5</h1>
+<h4>Número de solicitud: @ViewBag.Solicitud</h4> 
+
+<h4>Vacuna</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Paso4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Marca" class="control-label"></label>
+                <input asp-for="Marca" class="form-control" />
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaAplicacion" class="control-label"></label>
+                <input asp-for="FechaAplicacion" class="form-control" />
+                <span asp-validation-for="FechaAplicacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lote" class="control-label"></label>
+                <input asp-for="Lote" class="form-control" />
+                <span asp-validation-for="Lote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaVencimiento" class="control-label"></label>
+                <input asp-for="FechaVencimiento" class="form-control" />
+                <span asp-validation-for="FechaVencimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LugarAplicacion" class="control-label"></label>
+                <input asp-for="LugarAplicacion" class="form-control" />
+                <span asp-validation-for="LugarAplicacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observaciones" class="control-label"></label>
+                <input asp-for="Observaciones" class="form-control" />
+                <span asp-validation-for="Observaciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                i.¿Ha tenido COVID previo a inyectarse?
+                @Html.DropDownListFor(modelItem => modelItem.Respuesta1, new [] { new SelectListItem { Text = "Si", Value="1" } , new SelectListItem { Text = "No", Value="0"} }, new { @class = "form-control" })
+                <span asp-validation-for="Respuesta1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                ii.¿Ha tenido sospecha de haber tenido COVID antes de ponerte la
+                inyección?
+                 @Html.DropDownListFor(modelItem => modelItem.Respuesta2, new [] { new SelectListItem { Text = "Si", Value="1" } , new SelectListItem { Text = "No", Value="0"} }, new { @class = "form-control" })
+                <span asp-validation-for="Respuesta2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                iii.¿Ha tenido COVID después de tomar la inyección?
+                @Html.DropDownListFor(modelItem => modelItem.Respuesta3, new [] { new SelectListItem { Text = "Si", Value="1" } , new SelectListItem { Text = "No", Value="0"} }, new { @class = "form-control" })
+                <span asp-validation-for="Respuesta3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                 iv.¿Razón de inyectarse contra COVID?
+                <input asp-for="Respuesta4" class="form-control" />
+                <span asp-validation-for="Respuesta4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                v.¿Estaba embarazada al inyectarse contra COVID? Si aplica
+                @Html.DropDownListFor(modelItem => modelItem.Respuesta5, new [] { new SelectListItem { Text = "Si", Value="1" } , new SelectListItem { Text = "No", Value="0"} }, new { @class = "form-control" })
+                <span asp-validation-for="Respuesta5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                vi.¿Ha tenido reacciones a vacunas en el pasado?
+               @Html.DropDownListFor(modelItem => modelItem.Respuesta6, new [] { new SelectListItem { Text = "Si", Value="1" } , new SelectListItem { Text = "No", Value="0"} }, new { @class = "form-control" })
+                <span asp-validation-for="Respuesta6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                vii.Especifique las reacciones a vacunas en el pasado
+                <input asp-for="Respuesta7" class="form-control" />
+                <span asp-validation-for="Respuesta7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                viii.Medicamentos actuales con receta: enumere todos los medicamentos y las
+                dosis
+                <input asp-for="Respuesta8" class="form-control" />
+                <span asp-validation-for="Respuesta8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                ix.Nuevos medicamentos recetados que tuvieron que ser iniciados después
+                de la(s) inyección(es) de COVID
+                <input asp-for="Respuesta9" class="form-control" />
+                <span asp-validation-for="Respuesta9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
